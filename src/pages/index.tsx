@@ -4,7 +4,7 @@ import { Heading } from '@ignite-ui/react'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
-  subsets: ['latin']
+  subsets: ['latin'],
 })
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${roboto.className}`}>
-        <Heading as='h1'>Hello World</Heading>
+        <Heading as="h1">Hello World</Heading>
       </main>
     </>
   )
