@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Container, Hero, Preview } from './styles'
 
 import previewImage from '../../assets/app-preview.png'
+import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -23,11 +24,14 @@ export default function Home() {
       <main className={`${roboto.className}`}>
         <Container>
           <Hero>
-            <Heading as="h1" size="4xl">Agendamento descomplicado</Heading>
+            <Heading as="h1" size="4xl">
+              Agendamento descomplicado
+            </Heading>
             <Text size="xl">
               Conecte seu calendário e permita que as pessoas marquem
               agendamentos no seu tempo livre.
             </Text>
+            <ClaimUsernameForm />
           </Hero>
           <Preview>
             <Image
