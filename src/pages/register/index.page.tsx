@@ -96,6 +96,6 @@ export default function Register() {
           <ArrowRight />
         </Button>
       </Form>
-    </Container >
+    </Container>
   )
 }

@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
       }
 
       return true
-    }
+    },
   },
 }
 

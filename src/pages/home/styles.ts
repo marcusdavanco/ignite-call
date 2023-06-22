@@ -31,5 +31,5 @@ export const Preview = styled('div', {
 
   '@media(max-width: 600px)': {
     display: 'none',
-  }
+  },
 })
