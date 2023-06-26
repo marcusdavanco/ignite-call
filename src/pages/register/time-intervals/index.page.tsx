@@ -33,25 +33,33 @@ const timeIntervalsFormSchema = z.object({
       }),
     )
     .length(7)
-    .transform(intervals => intervals.filter(interval => interval.enabled === true))
-    .refine(intervals => intervals.length > 0 , {
-      message: 'Você precisa selecionar pelo menos um dia da semana!'
+    .transform((intervals) =>
+      intervals.filter((interval) => interval.enabled === true),
+    )
+    .refine((intervals) => intervals.length > 0, {
+      message: 'Você precisa selecionar pelo menos um dia da semana!',
     })
-    .transform(intervals => {
-      return intervals.map(interval => {
+    .transform((intervals) => {
+      return intervals.map((interval) => {
         return {
           weekDay: interval.weekDay,
           startTimeInMinutes: convertTimeStringToMinutes(interval.startTime),
           endTimeInMinutes: convertTimeStringToMinutes(interval.endTime),
-
         }
       })
     })
-    .refine(intervals => {
-      return intervals.every(interval => interval.endTimeInMinutes - 60 >= interval.startTimeInMinutes,)
-    }, {
-      message: 'O horário de término deve ser pelo menos 1h distante do início.',
-    })
+    .refine(
+      (intervals) => {
+        return intervals.every(
+          (interval) =>
+            interval.endTimeInMinutes - 60 >= interval.startTimeInMinutes,
+        )
+      },
+      {
+        message:
+          'O horário de término deve ser pelo menos 1h distante do início.',
+      },
+    ),
 })
 
 type TimeIntervalsFormInput = z.input<typeof timeIntervalsFormSchema>
@@ -151,10 +159,8 @@ export default function TimeIntervals() {
         </IntervalsContainer>
 
         {errors.intervals && (
-          <FormError size="sm">
-            {errors.intervals.message}
-          </FormError>
-        ) }
+          <FormError size="sm">{errors.intervals.message}</FormError>
+        )}
 
         <Button type="submit" disabled={isSubmitting}>
           Próximo passo
