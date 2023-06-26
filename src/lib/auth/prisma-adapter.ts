@@ -90,7 +90,7 @@ export function PrismaAdapter(
         },
         include: {
           user: true,
-        }
+        },
       })
 
       if (!account) {
@@ -191,7 +191,7 @@ export function PrismaAdapter(
           email: user.email!,
           emailVerified: null,
           avatar_url: user.avatar_url!,
-        }
+        },
       }
     },
     async updateSession({ sessionToken, userId, expires }) {
@@ -218,6 +218,6 @@ export function PrismaAdapter(
           session_token: sessionToken,
         },
       })
-    }
+    },
   }
 }
