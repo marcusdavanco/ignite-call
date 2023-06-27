@@ -1,25 +1,34 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth";
-import { buildNextAuthOptions } from "../auth/[...nextauth].api";
-import { z } from "zod";
-import { prisma } from "@/lib/prisma";
+import { NextApiRequest, NextApiResponse } from 'next'
+import { getServerSession } from 'next-auth'
+import { buildNextAuthOptions } from '../auth/[...nextauth].api'
+import { z } from 'zod'
+import { prisma } from '@/lib/prisma'
 
 const timeIntervalsBodySchema = z.object({
-  intervals: z.array(z.object({
-    weekDay: z.number(),
-    startTimeInMinutes: z.number(),
-    endTimeInMinutes: z.number(),
-  }))
+  intervals: z.array(
+    z.object({
+      weekDay: z.number(),
+      startTimeInMinutes: z.number(),
+      endTimeInMinutes: z.number(),
+    }),
+  ),
 })
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST'){
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  if (req.method !== 'POST') {
     return res.status(405).end()
   }
-  
-  const session = await getServerSession(req, res, buildNextAuthOptions(req, res))
 
-  if (!session){
+  const session = await getServerSession(
+    req,
+    res,
+    buildNextAuthOptions(req, res),
+  )
+
+  if (!session) {
     return res.status(401).end()
   }
 
@@ -37,7 +46,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     }),
   )
-
 
   return res.status(201).end()
 }
