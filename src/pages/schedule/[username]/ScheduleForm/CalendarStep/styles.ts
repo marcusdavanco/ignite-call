@@ -1,4 +1,4 @@
-import { Box, Text, styled } from "@ignite-ui/react";
+import { Box, Text, styled } from '@ignite-ui/react'
 
 export const Container = styled(Box, {
   margin: '$6 auto 0',
@@ -20,11 +20,8 @@ export const Container = styled(Box, {
         width: 540,
         gridTemplateColumns: '1fr',
       },
-    }
+    },
   },
-
-
-  
 })
 
 export const TimePicker = styled('div', {
@@ -37,7 +34,6 @@ export const TimePicker = styled('div', {
   bottom: 0,
   right: 0,
   width: 280,
-
 })
 
 export const TimePickerHeader = styled(Text, {
@@ -45,7 +41,7 @@ export const TimePickerHeader = styled(Text, {
 
   span: {
     color: '$gray200',
-  }
+  },
 })
 
 export const TimePickerList = styled('div', {
@@ -57,7 +53,6 @@ export const TimePickerList = styled('div', {
   '@media(max-width: 900px)': {
     gridTemplateColumns: '2fr',
   },
-
 })
 
 export const TimePickerItem = styled('button', {
@@ -87,6 +82,4 @@ export const TimePickerItem = styled('button', {
   '&:focus': {
     boxShadow: '0 0 0 2px $colors$gray100',
   },
-
-
 })

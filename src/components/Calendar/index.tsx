@@ -1,9 +1,16 @@
-import { CaretLeft, CaretRight } from "phosphor-react";
-import { CalendarActions, CalendarContainer, CalendarHeader, CalendarTitle, CalendarBody, CalendarDay } from "./styles";
-import { getWeekDays } from "@/utils/get-week-days";
+import { CaretLeft, CaretRight } from 'phosphor-react'
+import {
+  CalendarActions,
+  CalendarContainer,
+  CalendarHeader,
+  CalendarTitle,
+  CalendarBody,
+  CalendarDay,
+} from './styles'
+import { getWeekDays } from '@/utils/get-week-days'
 
 export function Calendar() {
-  const shortWeekDays = getWeekDays({short: true});
+  const shortWeekDays = getWeekDays({ short: true })
 
   return (
     <CalendarContainer>
@@ -24,7 +31,9 @@ export function Calendar() {
       <CalendarBody>
         <thead>
           <tr>
-            {shortWeekDays.map((weekDay: string) => <th key={weekDay}>{weekDay}.</th>)}
+            {shortWeekDays.map((weekDay: string) => (
+              <th key={weekDay}>{weekDay}.</th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -41,7 +50,7 @@ export function Calendar() {
             </td>
             <td>
               <CalendarDay>3</CalendarDay>
-            </td>            
+            </td>
           </tr>
         </tbody>
       </CalendarBody>
