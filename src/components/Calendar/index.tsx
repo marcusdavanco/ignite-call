@@ -99,7 +99,7 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
           })
         }
 
-        return weeks.filter(array => array.days.length === 7)
+        return weeks.filter((array) => array.days.length === 7)
       },
       [],
     )
