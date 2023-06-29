@@ -13,9 +13,6 @@ export default async function handle(
 
   const username = String(req.query.username)
 
-  
-
-
   const user = await prisma.user.findUnique({
     where: { username },
   })
@@ -32,7 +29,7 @@ export default async function handle(
   })
 
   const { name, email, observations, date } = createSchedulingBody.parse(
-    req.body
+    req.body,
   )
 
   const schedulingDate = dayjs(date).startOf('hour')
@@ -44,10 +41,10 @@ export default async function handle(
   }
 
   const conflictingScheduling = await prisma.scheduling.findFirst({
-    where:{
+    where: {
       user_id: user.id,
       date: schedulingDate.toDate(),
-    }
+    },
   })
 
   if (conflictingScheduling) {
@@ -63,9 +60,8 @@ export default async function handle(
       observations,
       date: schedulingDate.toDate(),
       user_id: user.id,
-    }
+    },
   })
-  
 
   return res.status(201).end()
 }
