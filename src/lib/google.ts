@@ -29,6 +29,7 @@ export async function getGoogleOauthToken(userId: string) {
 
   if (isTokenExpired) {
     const { credentials } = await auth.refreshAccessToken()
+
     const {
       access_token,
       expiry_date,
@@ -44,12 +45,12 @@ export async function getGoogleOauthToken(userId: string) {
       },
       data: {
         access_token,
-      expires_at: expiry_date ? Math.floor(expiry_date / 1000) : null,
-      id_token,
-      refresh_token,
-      scope,
-      token_type,
-      }
+        expires_at: expiry_date ? Math.floor(expiry_date / 1000) : null,
+        id_token,
+        refresh_token,
+        scope,
+        token_type,
+      },
     })
 
     auth.setCredentials({
@@ -57,7 +58,6 @@ export async function getGoogleOauthToken(userId: string) {
       refresh_token,
       expiry_date,
     })
-
-    return auth
   }
+  return auth
 }
