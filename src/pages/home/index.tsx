@@ -6,6 +6,7 @@ import { Container, Hero, Preview } from './styles'
 
 import previewImage from '../../assets/app-preview.png'
 import { ClaimUsernameForm } from './components/ClaimUsernameForm'
+import { NextSeo } from 'next-seo'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -21,6 +22,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        title="Descomplique sua agenda | Ignite Call"
+        description="Conecte seu calendário e permita que as pessoas marquem agendamentos no seu tempo livre."
+      />
       <main className={`${roboto.className}`}>
         <Container>
           <Hero>
